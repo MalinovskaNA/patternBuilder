@@ -3,24 +3,24 @@ package ru.netology.lessonN;
 import java.util.Objects;
 
 public class Person {
-    protected final String name;
-    protected final String surname;
+    protected final String NAME;
+    protected final String SURNAME;
     private int age;
     private String city;
 
     public Person(String name, String surname, int age, String city) {
-        this.name = name;
-        this.surname = surname;
+        this.NAME = name;
+        this.SURNAME = surname;
         this.age = age;
         this.city = city;
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 
     public String getSurname() {
-        return surname;
+        return SURNAME;
     }
 
     public int getAge() {
@@ -52,20 +52,20 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return age == person.age && name.equals(person.name) && surname.equals(person.surname) && city.equals(person.city);
+        return age == person.age && NAME.equals(person.NAME) && SURNAME.equals(person.SURNAME) && city.equals(person.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, age, city);
+        return Objects.hash(NAME, SURNAME, age, city);
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Person [name=")
-                .append(name).append(", surname=")
-                .append(surname).append(", age=")
+                .append(NAME).append(", surname=")
+                .append(SURNAME).append(", age=")
                 .append(age).append(", city=")
                 .append(city).append("]");
         return builder.toString();
@@ -73,9 +73,9 @@ public class Person {
 
     public PersonBuilder newChildBuilder() {
         PersonBuilder person = new PersonBuilder();
-        person.setName(name)
+        person.setName(NAME)
                 //setName(name != null && !name.trim().isEmpty()?getName():name)
-                .setSurname(surname)
+                .setSurname(SURNAME)
                 .setAddress(city).build();
         return person;
     }
